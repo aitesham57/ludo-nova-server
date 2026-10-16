@@ -30,7 +30,7 @@ io.on('connection',socket=>{
   if(!player)return;
   const message=String(data.message||'').trim().slice(0,300);
   if(!message)return;
-  io.to(room.id).emit('match:chat:message',{
+  socket.to(room.id).emit('match:chat:message',{
    name:player.name,
    message
   });
